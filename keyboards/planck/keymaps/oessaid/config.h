@@ -47,3 +47,9 @@
 
 // Most tactile encoders have detents every 4 stages
 #define ENCODER_RESOLUTION 4
+
+// Copied from ez_glow configuration
+#undef TAPPING_TERM
+#define TAPPING_TERM 169
+#define TAPPING_FORCE_HOLD
+#define USB_SUSPEND_WAKEUP_DELAY 0

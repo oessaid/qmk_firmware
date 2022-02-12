@@ -15,7 +15,6 @@
  */
 
 #include QMK_KEYBOARD_H
-#include "muse.h"
 
 // clang-format off
 enum planck_layers {
@@ -33,6 +32,8 @@ enum planck_keycodes {
   QWERTY = SAFE_RANGE,
   SYMBOLS,
   NAVIGATION,
+  FUNC,
+  VIM,
   TMUX,
   BACKLIT,
   EXT_PLV,
@@ -65,11 +66,8 @@ enum planck_keycodes {
   ST_MACRO_26,
   ST_MACRO_27,
   ST_MACRO_28,
-  ST_MACRO_29,
+  ST_MACRO_29
 };
-
-#define LOWER MO(_LOWER)
-#define RAISE MO(_RAISE)
 
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -86,10 +84,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * `------------------------------------------------------------------------------------------------------'
  */
 [_QWERTY] = LAYOUT_planck_grid(
-    KC_TAB,    KC_Q,      KC_W,     KC_E,     KC_R,      KC_T,      KC_Y,            KC_U,   KC_I,         KC_O,      KC_P,       KC_ESCAPE,      
+    KC_TAB,    KC_Q,      KC_W,     KC_E,     KC_R,      KC_T,      KC_Y,            KC_U,   KC_I,         KC_O,      KC_P,       LT(6, KC_ESCAPE),      
     KC_BSPACE, KC_A,      KC_S,     KC_D,     KC_F,      KC_G,      KC_H,            KC_J,   KC_K,         KC_L,      KC_SCOLON,  KC_QUOTE,       
     KC_LSPO,   KC_Z,      KC_X,     KC_C,     KC_V,      KC_B,      KC_N,            KC_M,   KC_COMMA,     KC_DOT,    KC_SLASH,   KC_RSPC,        
-    MO(5),     KC_LCTRL,  KC_LALT,  MO(4),    KC_LGUI,   KC_SPACE,  LT(2,KC_SPACE),  MO(3),  KC_CAPSLOCK,  KC_RALT,   KC_RCTRL,   LT(6,KC_ENTER)
+    MO(4),     KC_LCTRL,  KC_LALT,  MO(3),    KC_LGUI,   KC_SPACE,  LT(1,KC_SPACE),  MO(2),  KC_CAPSLOCK,  KC_RALT,   KC_RCTRL,   LT(5,KC_ENTER)
 ),
 
 /* Symbols
@@ -142,9 +140,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [_FUNC] = LAYOUT_planck_grid(
 
-    _______, _______, _______, _______, _______, _______, _______, KC_F7,   KC_F8,   KC_F9,   _______, _______, 
-    _______, _______, _______, _______, _______, _______, _______, KC_F4,   KC_F5,   KC_F6,   _______, _______, 
-    _______, _______, _______, _______, _______, _______, _______, KC_F1,   KC_F2,   KC_F3,   _______, _______, 
+    _______, _______, _______, _______, _______, _______, _______, KC_F7,   KC_F8,   KC_F9,   KC_F10, _______, 
+    _______, _______, _______, _______, _______, _______, _______, KC_F4,   KC_F5,   KC_F6,   KC_F11, _______, 
+    _______, _______, _______, _______, _______, _______, _______, KC_F1,   KC_F2,   KC_F3,   KC_F12, _______, 
     _______, _______, _______, _______, _______, _______, KC_NO,   _______, _______, _______, _______, _______
 ),
 
@@ -163,7 +161,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______, _______, _______, _______, _______,     _______, _______,     ST_MACRO_22, ST_MACRO_23, _______,     _______, _______, 
     _______, _______, _______, _______, _______,     _______, ST_MACRO_24, ST_MACRO_25, ST_MACRO_26, ST_MACRO_27, _______, _______, 
     _______, _______, _______, _______, _______,     _______, _______,     _______,     _______,     _______,     _______, _______, 
-    _______, _______, _______, _______, ST_MACRO_28, _______, KC_NO,       ST_MACRO_29, _______,     _______,     _______, _______
+    KC_NO,   _______, _______, _______, ST_MACRO_28, _______, KC_NO,       ST_MACRO_29, _______,     _______,     _______, _______
 ),
 
 /* Plover layer (http://opensteno.org)
@@ -341,49 +339,49 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     break;
     case ST_MACRO_22:
     if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_G) SS_DELAY(100) SS_LSFT(SS_TAP(X_T)));
+      SEND_STRING("g"SS_LSFT("t"));
 
     }
     break;
     case ST_MACRO_23:
     if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_G) SS_DELAY(100) SS_TAP(X_T));
+      SEND_STRING("gt");
 
     }
     break;
     case ST_MACRO_24:
     if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_SPACE) SS_DELAY(100) SS_TAP(X_H));
+      SEND_STRING(SS_TAP(X_SPACE)"h");
 
     }
     break;
     case ST_MACRO_25:
     if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_SPACE) SS_DELAY(100) SS_TAP(X_J));
+      SEND_STRING(SS_TAP(X_SPACE)"j");
 
     }
     break;
     case ST_MACRO_26:
     if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_SPACE) SS_DELAY(100) SS_TAP(X_K));
+      SEND_STRING(SS_TAP(X_SPACE)"k");
 
     }
     break;
     case ST_MACRO_27:
     if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_SPACE) SS_DELAY(100) SS_TAP(X_L));
+      SEND_STRING(SS_TAP(X_SPACE)"l");
 
     }
     break;
     case ST_MACRO_28:
     if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_SPACE) SS_DELAY(100) SS_TAP(X_MINUS));
+      SEND_STRING(SS_TAP(X_SPACE)"-");
 
     }
     break;
     case ST_MACRO_29:
     if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_SPACE) SS_DELAY(100) SS_TAP(X_BSLASH));
+      SEND_STRING(SS_TAP(X_SPACE) SS_TAP(X_BSLASH));
 
     }
     break;
