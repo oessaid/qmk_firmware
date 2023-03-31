@@ -72,6 +72,10 @@ enum planck_keycodes {
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
+/* ░█░█░█▀▀░█░█░█▄█░█▀█░█▀█░█▀▀ */
+/* ░█▀▄░█▀▀░░█░░█░█░█▀█░█▀▀░▀▀█ */
+/* ░▀░▀░▀▀▀░░▀░░▀░▀░▀░▀░▀░░░▀▀▀ */
+
 /* Qwerty
  * ,------------------------------------------------------------------------------------------------------.
  * | Tab   |   Q  |   W  |   E  |   R  |   T       |   Y       |   U   |   I  |   O  |   P  | Esc          |
@@ -87,7 +91,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TAB,    KC_Q,      KC_W,     KC_E,     KC_R,      KC_T,      KC_Y,            KC_U,   KC_I,         KC_O,      KC_P,       LT(6, KC_ESCAPE),      
     KC_BSPACE, KC_A,      KC_S,     KC_D,     KC_F,      KC_G,      KC_H,            KC_J,   KC_K,         KC_L,      KC_SCOLON,  KC_QUOTE,       
     KC_LSPO,   KC_Z,      KC_X,     KC_C,     KC_V,      KC_B,      KC_N,            KC_M,   KC_COMMA,     KC_DOT,    KC_SLASH,   KC_RSPC,        
-    MO(4),     KC_LCTRL,  KC_LALT,  MO(3),    KC_LGUI,   KC_SPACE,  LT(1,KC_SPACE),  MO(2),  KC_CAPSLOCK,  KC_RALT,   KC_RCTRL,   LT(5,KC_ENTER)
+    MO(4),     KC_LCTRL,  KC_LALT,  KC_HYPR,    KC_LGUI,   KC_SPACE,  LT(1,KC_SPACE),  MO(2),  KC_CAPSLOCK,  KC_RALT,   KC_RCTRL,   LT(5,KC_ENTER)
 ),
 
 /* Symbols
@@ -105,7 +109,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_GRAVE, KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_LBRACKET, KC_RBRACKET, KC_7,    KC_8,     KC_9,   KC_MINUS, KC_EQUAL,       
     _______ , KC_CIRC, KC_AMPR, KC_ASTR, KC_PERC, KC_LPRN,     KC_RPRN,     KC_4,    KC_5,     KC_6,   KC_0,     KC_BSLASH,      
     _______ , _______, _______, _______, _______, KC_LCBR,     KC_RCBR,     KC_1,    KC_2,     KC_3,   _______,  _______, 
-    _______ , _______, _______, _______, KC_LABK, _______,     _______,     KC_RABK, KC_COMMA, KC_DOT, _______,  _______
+    _______ , _______, _______, _______, KC_LABK, _______,     _______,     KC_RABK, KC_COMMA, KC_DOT, _______,  KC_F10
 ),
 
 /* Navigation
@@ -122,7 +126,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_NAVIGATION] = LAYOUT_planck_grid(
 
     _______, _______, _______, _______, _______, _______,   _______, LCTL(LSFT(KC_TAB)), LCTL(KC_TAB), _______,  _______,         _______, 
-    _______, _______, _______, _______, _______, _______,   KC_LEFT, KC_DOWN,            KC_UP,        KC_RIGHT, LGUI(KC_SCOLON), LALT(LCTL(LGUI(LSFT(KC_QUOTE)))),
+    _______, _______, _______, _______, _______, _______,   KC_LEFT, KC_DOWN,            KC_UP,        KC_RIGHT, LGUI(KC_TAB), LGUI(KC_GRAVE),
     _______, _______, _______, _______, _______, _______,   _______, _______,            _______,      _______,  _______,         _______, 
     _______, _______, _______, _______, _______, KC_DELETE, _______, _______,            _______,      _______,  _______,         _______
 ),
