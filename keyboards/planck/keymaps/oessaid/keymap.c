@@ -90,57 +90,55 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * `------------------------------------------------------------------------------------------------------'
  */
 [_QWERTY] = LAYOUT_planck_grid(
-    KC_TAB,    KC_Q,      KC_W,     KC_E,     KC_R,      KC_T,      KC_Y,            KC_U,   KC_I,         KC_O,      KC_P,       LT(6, KC_ESCAPE),      
-    KC_BSPACE, KC_A,      KC_S,     KC_D,     LT(2, KC_F),      KC_G,      KC_H,            KC_J,   KC_K,         KC_L,      KC_SCOLON,  KC_QUOTE,       
-    KC_LSPO,   KC_Z,      KC_X,     KC_C,     KC_V,      KC_B,      KC_N,            KC_M,   KC_COMMA,     KC_DOT,    KC_SLASH,   KC_RSPC,        
-    /* MO(4),     KC_LCTRL,  KC_LALT,  KC_HYPR,    KC_LGUI,   KC_SPACE,  LT(1,KC_SPACE),  MO(2),  KC_CAPSLOCK,  KC_RALT,   KC_RCTRL,   LT(5,KC_ENTER) */
-    MO(3),     KC_LCTRL,  KC_LALT,  KC_LGUI,  LT(4, KC_ENTER), LT(1, KC_BSPACE),    LT(1, KC_SPACE), LT(5, KC_ENTER),  KC_CAPSLOCK,  KC_RALT,   KC_RCTRL,  MO(3) 
-    /* _______, _______, _______, _______,    SYM+NUM,          VIM,             TMUX,           NAV,          _______,  _______, _______, _______ */
+    KC_TAB,    KC_Q,      KC_W,     KC_E,     KC_R,      KC_T,      KC_Y,            KC_U,   KC_I,         KC_O,      KC_P,       LT(6, KC_ESCAPE),
+    KC_BSPACE, KC_A,      KC_S,     KC_D,     LT(2, KC_F),      KC_G,      KC_H,            KC_J,   KC_K,         KC_L,      KC_SCOLON,  KC_QUOTE,
+    KC_LSFT,   KC_Z,      KC_X,     KC_C,     KC_V,      KC_B,      KC_N,            KC_M,   KC_COMMA,     KC_DOT,    KC_SLASH,   KC_RSFT,
+    MO(3),     KC_LCTRL,  KC_LALT,  KC_LGUI,  LT(4, KC_ENTER), LT(1, KC_SPACE), LT(1, KC_SPACE), LT(7, KC_ENTER), KC_HYPR,    KC_RALT,   KC_RCTRL,  MO(3)
 ),
-/* 1: SYMBOLS+NUM; 
- * 2: NAV; 
- * 3: FN; 
- * 4: VIM; 
- * 5: TMUX 
+/* 1: SYMBOLS+NUM;
+ * 2: NAV;
+ * 3: FN;
+ * 4: VIM;
+ * 5: TMUX
  * 7: HYPER */
 
 [_SYMBOLS] = LAYOUT_planck_grid(
-    KC_GRAVE, KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_LBRACKET, KC_RBRACKET, KC_7,    KC_8,     KC_9,   KC_MINUS, KC_EQUAL,       
-    _______ , KC_CIRC, KC_AMPR, KC_ASTR, KC_PERC, KC_LPRN,     KC_RPRN,     KC_4,    KC_5,     KC_6,   KC_0,     KC_BSLASH,      
-    _______ , _______, _______, _______, _______, KC_LCBR,     KC_RCBR,     KC_1,    KC_2,     KC_3,   _______,  _______, 
+    KC_GRAVE, KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_LBRACKET, KC_RBRACKET, KC_7,    KC_8,     KC_9,   KC_MINUS, KC_EQUAL,
+    _______ , KC_CIRC, KC_AMPR, KC_ASTR, KC_PERC, KC_LPRN,     KC_RPRN,     KC_4,    KC_5,     KC_6,   KC_0,     KC_BSLASH,
+    _______ , _______, _______, _______, _______, KC_LCBR,     KC_RCBR,     KC_1,    KC_2,     KC_3,   _______,  _______,
     _______ , _______, _______, _______, KC_LABK, _______,     _______,     KC_RABK, KC_COMMA, KC_DOT, _______,  KC_F10
     /* _______ , _______, _______, _______, _______, KC_LABK,     KC_RABK,     _______, KC_COMMA, KC_DOT, _______,  KC_F10 */
 ),
 
 [_NAVIGATION] = LAYOUT_planck_grid(
 
-    _______, _______, _______, _______, _______, _______,   _______, LCTL(LSFT(KC_TAB)), LCTL(KC_TAB), _______,  _______,         _______, 
+    _______, _______, _______, _______, _______, _______,   _______, LCTL(LSFT(KC_TAB)), LCTL(KC_TAB), _______,  _______,         _______,
     _______, _______, _______, _______, _______, _______,   KC_LEFT, KC_DOWN,            KC_UP,        KC_RIGHT, LGUI(KC_TAB), LGUI(KC_GRAVE),
-    _______, _______, _______, _______, _______, _______,   _______, _______,            _______,      _______,  _______,         _______, 
+    _______, _______, _______, _______, _______, _______,   _______, _______,            _______,      _______,  _______,         _______,
     _______, _______, _______, _______, _______, _______, _______, _______,            _______,      _______,  _______,         _______
 ),
 
 [_FUNC] = LAYOUT_planck_grid(
 
-    _______, _______, _______, _______, _______, _______, _______, KC_F7,   KC_F8,   KC_F9,   KC_F10, _______, 
-    _______, _______, _______, _______, _______, _______, _______, KC_F4,   KC_F5,   KC_F6,   KC_F11, _______, 
-    _______, _______, _______, _______, _______, _______, _______, KC_F1,   KC_F2,   KC_F3,   KC_F12, _______, 
+    _______, _______, _______, _______, _______, _______, _______, KC_F7,   KC_F8,   KC_F9,   KC_F10, _______,
+    _______, _______, _______, _______, _______, _______, _______, KC_F4,   KC_F5,   KC_F6,   KC_F11, _______,
+    _______, _______, _______, _______, _______, _______, _______, KC_F1,   KC_F2,   KC_F3,   KC_F12, _______,
     _______, _______, _______, _______, _______, _______, KC_NO,   _______, _______, _______, _______, _______
 ),
 
 [_VIM] = LAYOUT_planck_grid(
-    _______, _______, _______, _______, _______,     _______, _______,     ST_MACRO_22, ST_MACRO_23, _______,     _______, _______, 
-    _______, _______, _______, _______, _______,     _______, ST_MACRO_24, ST_MACRO_25, ST_MACRO_26, ST_MACRO_27, _______, _______, 
-    _______, _______, _______, _______, _______,     _______, _______,     _______,     _______,     _______,     _______, _______, 
-    KC_NO,   _______, _______, _______, _______, ST_MACRO_28, ST_MACRO_29, MO(7), _______,     _______,     _______, _______
+    _______, _______, _______, _______, _______,     _______, _______,     ST_MACRO_22, ST_MACRO_23, _______,     ST_MACRO_28, _______,
+    _______, _______, _______, _______, _______,     _______, ST_MACRO_24, ST_MACRO_25, ST_MACRO_26, ST_MACRO_27, _______, ST_MACRO_29,
+    _______, _______, _______, _______, _______,     _______, _______,     _______,     _______,     _______,     _______, _______,
+    KC_NO,   _______, _______, _______, _______, LGUI(KC_ENTER), LGUI(KC_SPACE), MO(7), _______,     _______,     _______, _______
     /* KC_NO,   _______, _______, _______, ST_MACRO_28, _______, KC_HYPR,       ST_MACRO_29, _______,     _______,     _______, _______ */
 ),
 
 [_TMUX] = LAYOUT_planck_grid(
-    _______, _______,     ST_MACRO_0,  ST_MACRO_1,  ST_MACRO_2,  _______, _______,    ST_MACRO_3,  ST_MACRO_4,  _______,     _______,     ST_MACRO_5,     
-    _______, _______,     ST_MACRO_6,  ST_MACRO_7,  ST_MACRO_8,  _______, ST_MACRO_9, ST_MACRO_10, ST_MACRO_11, ST_MACRO_12, LGUI(KC_TAB),     ST_MACRO_13,    
-    _______, ST_MACRO_14, ST_MACRO_15, ST_MACRO_16, _______,     _______, _______,    _______,     ST_MACRO_17, ST_MACRO_18, ST_MACRO_19, _______, 
-    _______, _______,     _______,     _______,     MO(7), ST_MACRO_20, ST_MACRO_21, _______, _______,     _______,     _______,     _______
+    _______, _______,     ST_MACRO_0,  ST_MACRO_1,  ST_MACRO_2,  _______, _______,    ST_MACRO_3,  ST_MACRO_4,  _______,     ST_MACRO_20,     ST_MACRO_5,
+    _______, _______,     ST_MACRO_6,  ST_MACRO_7,  ST_MACRO_8,  _______, ST_MACRO_9, ST_MACRO_10, ST_MACRO_11, ST_MACRO_12, HYPR(KC_SCOLON),     ST_MACRO_21,
+    _______, ST_MACRO_14, ST_MACRO_15, ST_MACRO_16, _______,     _______, _______,    _______,     ST_MACRO_17, ST_MACRO_18, ST_MACRO_19, _______,
+    _______, _______,     _______,     _______,  MO(7), LGUI(KC_ENTER), LGUI(KC_SPACE), _______, _______,     _______,     _______,     _______
     /* _______, _______,     _______,     _______,     ST_MACRO_20, KC_HYPR, _______,      ST_MACRO_21, _______,     _______,     _______,     _______ */
 ),
 
@@ -165,9 +163,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 [_HYPER] = LAYOUT_planck_grid(
 
-    _______, _______, _______, _______, _______, _______, _______, HYPR(KC_U),   HYPR(KC_I), _______, _______, HYPR(KC_EQUAL), 
-    _______, _______, _______, _______, _______, _______, HYPR(KC_H), HYPR(KC_J), HYPR(KC_K), HYPR(KC_L), HYPR(KC_SCOLON), _______, 
-    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, 
+    _______, HYPR(KC_Q), HYPR(KC_Q), _______, _______, _______, _______, HYPR(KC_U),   HYPR(KC_I), _______, _______, HYPR(KC_EQUAL),
+    _______, _______, _______, _______, _______, _______, HYPR(KC_H), HYPR(KC_J), HYPR(KC_K), HYPR(KC_L), HYPR(KC_SCOLON), _______,
+    _______, HYPR(KC_Z), HYPR(KC_X), HYPR(KC_C), HYPR(KC_V), _______, _______, _______, _______, _______, _______, _______,
     _______, _______, _______, _______, _______, _______, KC_NO,   _______, _______, _______, _______, _______
 ),
 
